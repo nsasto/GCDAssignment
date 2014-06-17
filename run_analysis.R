@@ -59,7 +59,7 @@
   str(s)
   
   #write data back to disk as tidy1.csv
-  write.csv(s, file="tidy_1.csv")
+  write.csv(s, file="tidy_1.txt")
   
 ##step 3: Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
     
@@ -75,5 +75,5 @@
   ##Clean dataset DT data table of 180 obs. of  67 variables
   str(DT)
   #write data back to disk as tidy2.csv
-  write.csv(DT, file="tidy_2.csv")
+  write.csv(DT, file="tidy_2.txt")
   
