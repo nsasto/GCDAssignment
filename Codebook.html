@@ -1,0 +1,370 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>Codebook</title></head><body><h1 id="getting-and-cleaning-data-assignment-copdebook">Getting and Cleaning Data Assignment CopdeBook</h1>
+<h2 id="background">Background</h2>
+<h3 id="context">Context</h3>
+<p>The purpose of this project is to demonstrate an ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. The following are required to submit and included in this repo: </p>
+<ol>
+<li>a tidy data set as described below, </li>
+<li>a link to a Github repository with your script for performing the analysis, and </li>
+<li>a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. </li>
+</ol>
+<p>This repo explains how all of the scripts work and how they are connected.  </p>
+<h3 id="data">Data</h3>
+<p>The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">here</a>. The source data for the assignment can be obtained from <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">here</a></p>
+<h4 id="variables">Variables</h4>
+<p>original data set variables are documented extensively in the README.txt file contained in the source zip file. Only variables included in the two transformed data sets will be documented here.</p>
+<h3 id="required-outputs">Required Outputs</h3>
+<p>one R script called run_analysis.R that does the following:
+<em> Merges the training and the test sets to create one data set.
+</em> Extracts only the measurements on the mean and standard deviation for each measurement. 
+<em> Uses descriptive activity names to name the activities in the data set
+</em> Appropriately labels the data set with descriptive variable names. 
+* Creates a second, independent tidy data set with the average of each variable for each activity and each subject. </p>
+<h2 id="repo-contents">Repo Contents</h2>
+<ul>
+<li>README.md - this file</li>
+<li>Codebook.md - description of processes used to create the tidy datasets</li>
+<li>varNames.xls - Excel file used to generate the variable list markdown</li>
+<li>run_analysis.R - R script to load source data and create a consolidated tidy dataset 
+two tidy data csv files with:</li>
+<li>tidy1.csv - Consolidated dataset with clean variable names, merging X,Y and subject components containing only mean and standard deviation measurements </li>
+<li>tidy2.csv - Second, independent tidy data set with the average of each variable for each activity and each subject. </li>
+</ul>
+<h3 id="working-directory">Working Directory</h3>
+<p>The script assumes your working directory contains the unzipped data set consistent with the format of the data zip file, ie. with the following structure
+<em> activity_labels.txt
+</em> features.txt
+<em> features_info.txt
+</em> README.txt
+<em> test  (DIRECTORY)
+</em> train (DIRECTORY)</p>
+<p>etc.</p>
+<h2 id="how-it-works">How It Works</h2>
+<h2 id="script-process">Script process</h2>
+<p>The script performs the following activities in order to create a tidy dataset, each activity is clearly marked with comments in the attached <em>run_analysis.R</em> file:</p>
+<ul>
+<li>Data preparation:</li>
+<li>Loads required test and training data sets (X, Y and Subject) data into R</li>
+<li>binds Subject, X and Y data for both training and test data (cbind)</li>
+<li>combines test and training data (rbind)</li>
+<li>loads features.txt file into R for creation of column names.</li>
+<li>parses features data to create syntactically correct variable names. </li>
+<li>Add an Activity factor column converting the Activity data to a factor, to make to human readable activity values</li>
+<li>Data extraction</li>
+<li>using grep, extracts all column names with only mean and std (excluding meanFreq) to output only required rows</li>
+<li>casts all numeric data explcitly to numeric in case any data has been cast to char in the load</li>
+<li>saves this dataset as <em>tidy1.csv</em></li>
+<li>converts dataset to data.table for quick aggregation</li>
+<li>creates a further dataset which provides mean of each combination of subject and activity for each variable.</li>
+<li>saves this output to <em>tidy2.csv</em></li>
+</ul>
+<h2 id="variables_1">Variables</h2>
+<h3 id="general">General</h3>
+<p>The features selected for the source database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. </p>
+<p>Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). </p>
+<p>Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). </p>
+<p>These signals were used to estimate variables of the feature vector for each pattern:<br />
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.</p>
+<ul>
+<li>tBodyAcc-XYZ</li>
+<li>tGravityAcc-XYZ</li>
+<li>tBodyAccJerk-XYZ</li>
+<li>tBodyGyro-XYZ</li>
+<li>tBodyGyroJerk-XYZ</li>
+<li>tBodyAccMag</li>
+<li>tGravityAccMag</li>
+<li>tBodyAccJerkMag</li>
+<li>tBodyGyroMag</li>
+<li>tBodyGyroJerkMag</li>
+<li>fBodyAcc-XYZ</li>
+<li>fBodyAccJerk-XYZ</li>
+<li>fBodyGyro-XYZ</li>
+<li>fBodyAccMag</li>
+<li>fBodyAccJerkMag</li>
+<li>fBodyGyroMag</li>
+<li>fBodyGyroJerkMag</li>
+</ul>
+<p>The set of variables that were retained from the original dataset were restricted to: </p>
+<ul>
+<li>mean(): Mean value</li>
+<li>std(): Standard deviation</li>
+</ul>
+<p>as per assignment instructions. Original variable names were all cleaned with the <code>make.names</code> function to ensure syntactically correct names. All .'s have been replaced with underscores for better readability. </p>
+<h3 id="tidy1-csv-consolidated-dataset-with-mean-and-standard-deviations">tidy1.csv: Consolidated dataset with mean and standard deviations</h3>
+<p>Contains a data frame with 10299 observations of  67 variables. The file is saved as standard csv. To load, simply use <code>read.csv(file="tidy_1.csv")</code></p>
+<p>Included variables are as follows:</p>
+<ul>
+<li><strong>Subject</strong>:Factor with 30 levels, the subject id for whom the results pertain</li>
+<li><strong>Activity</strong>:Factor with 6 levels</li>
+<li><em>WALKING</em></li>
+<li><em>WALKING_UPSTAIRS</em></li>
+<li><em>WALKING_DOWNSTAIRS</em></li>
+<li><em>SITTING</em></li>
+<li><em>STANDING</em></li>
+<li><em>LAYING</em></li>
+<li><strong>tBodyAcc_mean_X</strong>:numeric. mean of <em>tBodyAcc_X</em></li>
+<li><strong>tBodyAcc_mean_Y</strong>:numeric. mean of <em>tBodyAcc_Y</em></li>
+<li><strong>tBodyAcc_mean_Z</strong>:numeric. mean of <em>tBodyAcc_Z</em></li>
+<li><strong>tBodyAcc_std_X</strong>:numeric. standard deviation of <em>tBodyAcc_X</em></li>
+<li><strong>tBodyAcc_std_Y</strong>:numeric. standard deviation of <em>tBodyAcc_Y</em></li>
+<li><strong>tBodyAcc_correlation_Y_Z</strong>:numeric. standard deviation of <em>tBodyAcc_correlation_Y_Z</em></li>
+<li><strong>tGravityAcc_mean_X</strong>:numeric. mean of <em>tGravityAcc_X</em></li>
+<li><strong>tGravityAcc_mean_Y</strong>:numeric. mean of <em>tGravityAcc_Y</em></li>
+<li><strong>tGravityAcc_mean_Z</strong>:numeric. mean of <em>tGravityAcc_Z</em></li>
+<li><strong>tGravityAcc_std_X</strong>:numeric. standard deviation of <em>tGravityAcc_X</em></li>
+<li><strong>tGravityAcc_std_Y</strong>:numeric. standard deviation of <em>tGravityAcc_Y</em></li>
+<li><strong>tGravityAcc_correlation_Y_Z</strong>:numeric. standard deviation of <em>tGravityAcc_correlation_Y_Z</em></li>
+<li><strong>tBodyAccJerk_mean_X</strong>:numeric. mean of <em>tBodyAccJerk_X</em></li>
+<li><strong>tBodyAccJerk_mean_Y</strong>:numeric. mean of <em>tBodyAccJerk_Y</em></li>
+<li><strong>tBodyAccJerk_mean_Z</strong>:numeric. mean of <em>tBodyAccJerk_Z</em></li>
+<li><strong>tBodyAccJerk_std_X</strong>:numeric. standard deviation of <em>tBodyAccJerk_X</em></li>
+<li><strong>tBodyAccJerk_std_Y</strong>:numeric. standard deviation of <em>tBodyAccJerk_Y</em></li>
+<li><strong>tBodyAccJerk_correlation_Y_Z</strong>:numeric. standard deviation of <em>tBodyAccJerk_correlation_Y_Z</em></li>
+<li><strong>tBodyGyro_mean_X</strong>:numeric. mean of <em>tBodyGyro_X</em></li>
+<li><strong>tBodyGyro_mean_Y</strong>:numeric. mean of <em>tBodyGyro_Y</em></li>
+<li><strong>tBodyGyro_mean_Z</strong>:numeric. mean of <em>tBodyGyro_Z</em></li>
+<li><strong>tBodyGyro_std_X</strong>:numeric. standard deviation of <em>tBodyGyro_X</em></li>
+<li><strong>tBodyGyro_std_Y</strong>:numeric. standard deviation of <em>tBodyGyro_Y</em></li>
+<li><strong>tBodyGyro_correlation_Y_Z</strong>:numeric. standard deviation of <em>tBodyGyro_correlation_Y_Z</em></li>
+<li><strong>tBodyGyroJerk_mean_X</strong>:numeric. mean of <em>tBodyGyroJerk_X</em></li>
+<li><strong>tBodyGyroJerk_mean_Y</strong>:numeric. mean of <em>tBodyGyroJerk_Y</em></li>
+<li><strong>tBodyGyroJerk_mean_Z</strong>:numeric. mean of <em>tBodyGyroJerk_Z</em></li>
+<li><strong>tBodyGyroJerk_std_X</strong>:numeric. standard deviation of <em>tBodyGyroJerk_X</em></li>
+<li><strong>tBodyGyroJerk_std_Y</strong>:numeric. standard deviation of <em>tBodyGyroJerk_Y</em></li>
+<li><strong>tBodyGyroJerk_correlation_Y_Z</strong>:numeric. standard deviation of <em>tBodyGyroJerk_correlation_Y_Z</em></li>
+<li><strong>tBodyAccMag_mean</strong>:numeric. mean of <em>tBodyAccMag_mean</em></li>
+<li><strong>tBodyAccMag_arCoeff_4</strong>:numeric. standard deviation of <em>tBodyAccMag_arCoeff_4</em></li>
+<li><strong>tGravityAccMag_mean</strong>:numeric. mean of <em>tGravityAccMag_mean</em></li>
+<li><strong>tGravityAccMag_arCoeff_4</strong>:numeric. standard deviation of <em>tGravityAccMag_arCoeff_4</em></li>
+<li><strong>tBodyAccJerkMag_mean</strong>:numeric. mean of <em>tBodyAccJerkMag_mean</em></li>
+<li><strong>tBodyAccJerkMag_arCoeff_4</strong>:numeric. standard deviation of <em>tBodyAccJerkMag_arCoeff_4</em></li>
+<li><strong>tBodyGyroMag_mean</strong>:numeric. mean of <em>tBodyGyroMag_mean</em></li>
+<li><strong>tBodyGyroMag_arCoeff_4</strong>:numeric. standard deviation of <em>tBodyGyroMag_arCoeff_4</em></li>
+<li><strong>tBodyGyroJerkMag_mean</strong>:numeric. mean of <em>tBodyGyroJerkMag_mean</em></li>
+<li><strong>tBodyGyroJerkMag_arCoeff_4</strong>:numeric. standard deviation of <em>tBodyGyroJerkMag_arCoeff_4</em></li>
+<li><strong>fBodyAcc_mean_X</strong>:numeric. mean of <em>fBodyAcc_X</em></li>
+<li><strong>fBodyAcc_mean_Y</strong>:numeric. mean of <em>fBodyAcc_Y</em></li>
+<li><strong>fBodyAcc_mean_Z</strong>:numeric. mean of <em>fBodyAcc_Z</em></li>
+<li><strong>fBodyAcc_std_X</strong>:numeric. standard deviation of <em>fBodyAcc_X</em></li>
+<li><strong>fBodyAcc_std_Y</strong>:numeric. standard deviation of <em>fBodyAcc_Y</em></li>
+<li><strong>fBodyAcc_bandsEnergy_25_48.2</strong>:numeric. standard deviation of <em>fBodyAcc_bandsEnergy_25_48.2</em></li>
+<li><strong>fBodyAccJerk_mean_X</strong>:numeric. mean of <em>fBodyAccJerk_X</em></li>
+<li><strong>fBodyAccJerk_mean_Y</strong>:numeric. mean of <em>fBodyAccJerk_Y</em></li>
+<li><strong>fBodyAccJerk_mean_Z</strong>:numeric. mean of <em>fBodyAccJerk_Z</em></li>
+<li><strong>fBodyAccJerk_std_X</strong>:numeric. standard deviation of <em>fBodyAccJerk_X</em></li>
+<li><strong>fBodyAccJerk_std_Y</strong>:numeric. standard deviation of <em>fBodyAccJerk_Y</em></li>
+<li><strong>fBodyAccJerk_bandsEnergy_25_48.2</strong>:numeric. standard deviation of <em>fBodyAccJerk_bandsEnergy_25_48.2</em></li>
+<li><strong>fBodyGyro_mean_X</strong>:numeric. mean of <em>fBodyGyro_X</em></li>
+<li><strong>fBodyGyro_mean_Y</strong>:numeric. mean of <em>fBodyGyro_Y</em></li>
+<li><strong>fBodyGyro_mean_Z</strong>:numeric. mean of <em>fBodyGyro_Z</em></li>
+<li><strong>fBodyGyro_std_X</strong>:numeric. standard deviation of <em>fBodyGyro_X</em></li>
+<li><strong>fBodyGyro_std_Y</strong>:numeric. standard deviation of <em>fBodyGyro_Y</em></li>
+<li><strong>fBodyGyro_bandsEnergy_25_48.2</strong>:numeric. standard deviation of <em>fBodyGyro_bandsEnergy_25_48.2</em></li>
+<li><strong>fBodyAccMag_mean</strong>:numeric. mean of <em>fBodyAccMag_mean</em></li>
+<li><strong>fBodyAccMag_kurtosis</strong>:numeric. standard deviation of <em>fBodyAccMag_kurtosis</em></li>
+<li><strong>fBodyBodyAccJerkMag_mean</strong>:numeric. mean of <em>fBodyBodyAccJerkMag_mean</em></li>
+<li><strong>fBodyBodyAccJerkMag_kurtosis</strong>:numeric. standard deviation of <em>fBodyBodyAccJerkMag_kurtosis</em></li>
+<li><strong>fBodyBodyGyroMag_mean</strong>:numeric. mean of <em>fBodyBodyGyroMag_mean</em></li>
+<li><strong>fBodyBodyGyroMag_kurtosis</strong>:numeric. standard deviation of <em>fBodyBodyGyroMag_kurtosis</em></li>
+<li><strong>fBodyBodyGyroJerkMag_mean</strong>:numeric. mean of <em>fBodyBodyGyroJerkMag_mean</em></li>
+</ul>
+<h3 id="tidy2-csv-data-set-with-mean-of-each-variable-per-activity-and-subject">tidy2.csv: Data set with mean of each variable per activity and subject</h3>
+<p>Contains a data frame with 180 observations of  67 variables. The file is saved as standard csv. To load, simply use <code>read.csv(file="tidy_2.csv")</code>
+The variables in this case are the average of each variable in tidy_1 for each activity and each subject combination. As such, variables are prefixed with 'mean.' to avoid confusion with variables in tidy1.csv</p>
+<p>Included variables are as follows:</p>
+<ul>
+<li><strong>Subject</strong>:Factor with 30 levels, the subject id for whom the results pertain</li>
+<li><strong>Activity</strong>:Factor with 6 levels</li>
+<li><em>WALKING</em></li>
+<li><em>WALKING_UPSTAIRS</em></li>
+<li><em>WALKING_DOWNSTAIRS</em></li>
+<li><em>SITTING</em></li>
+<li><em>STANDING</em></li>
+<li><em>LAYING</em></li>
+<li><strong>mean.tBodyAcc_mean_X</strong>:numeric. Average (mean) of <em>tBodyAcc_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAcc_mean_Y</strong>:numeric. Average (mean) of <em>tBodyAcc_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAcc_mean_Z</strong>:numeric. Average (mean) of <em>tBodyAcc_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAcc_std_X</strong>:numeric. Average (mean) of <em>tBodyAcc_std_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAcc_std_Y</strong>:numeric. Average (mean) of <em>tBodyAcc_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAcc_correlation_Y_Z</strong>:numeric. Average (mean) of <em>tBodyAcc_correlation_Y_Z</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAcc_mean_X</strong>:numeric. Average (mean) of <em>tGravityAcc_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAcc_mean_Y</strong>:numeric. Average (mean) of <em>tGravityAcc_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAcc_mean_Z</strong>:numeric. Average (mean) of <em>tGravityAcc_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAcc_std_X</strong>:numeric. Average (mean) of <em>tGravityAcc_std_X</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAcc_std_Y</strong>:numeric. Average (mean) of <em>tGravityAcc_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAcc_correlation_Y_Z</strong>:numeric. Average (mean) of <em>tGravityAcc_correlation_Y_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerk_mean_X</strong>:numeric. Average (mean) of <em>tBodyAccJerk_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerk_mean_Y</strong>:numeric. Average (mean) of <em>tBodyAccJerk_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerk_mean_Z</strong>:numeric. Average (mean) of <em>tBodyAccJerk_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerk_std_X</strong>:numeric. Average (mean) of <em>tBodyAccJerk_std_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerk_std_Y</strong>:numeric. Average (mean) of <em>tBodyAccJerk_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerk_correlation_Y_Z</strong>:numeric. Average (mean) of <em>tBodyAccJerk_correlation_Y_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyro_mean_X</strong>:numeric. Average (mean) of <em>tBodyGyro_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyro_mean_Y</strong>:numeric. Average (mean) of <em>tBodyGyro_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyro_mean_Z</strong>:numeric. Average (mean) of <em>tBodyGyro_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyro_std_X</strong>:numeric. Average (mean) of <em>tBodyGyro_std_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyro_std_Y</strong>:numeric. Average (mean) of <em>tBodyGyro_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyro_correlation_Y_Z</strong>:numeric. Average (mean) of <em>tBodyGyro_correlation_Y_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerk_mean_X</strong>:numeric. Average (mean) of <em>tBodyGyroJerk_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerk_mean_Y</strong>:numeric. Average (mean) of <em>tBodyGyroJerk_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerk_mean_Z</strong>:numeric. Average (mean) of <em>tBodyGyroJerk_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerk_std_X</strong>:numeric. Average (mean) of <em>tBodyGyroJerk_std_X</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerk_std_Y</strong>:numeric. Average (mean) of <em>tBodyGyroJerk_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerk_correlation_Y_Z</strong>:numeric. Average (mean) of <em>tBodyGyroJerk_correlation_Y_Z</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccMag_mean</strong>:numeric. Average (mean) of <em>tBodyAccMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccMag_arCoeff_4</strong>:numeric. Average (mean) of <em>tBodyAccMag_arCoeff_4</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAccMag_mean</strong>:numeric. Average (mean) of <em>tGravityAccMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.tGravityAccMag_arCoeff_4</strong>:numeric. Average (mean) of <em>tGravityAccMag_arCoeff_4</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerkMag_mean</strong>:numeric. Average (mean) of <em>tBodyAccJerkMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.tBodyAccJerkMag_arCoeff_4</strong>:numeric. Average (mean) of <em>tBodyAccJerkMag_arCoeff_4</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroMag_mean</strong>:numeric. Average (mean) of <em>tBodyGyroMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroMag_arCoeff_4</strong>:numeric. Average (mean) of <em>tBodyGyroMag_arCoeff_4</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerkMag_mean</strong>:numeric. Average (mean) of <em>tBodyGyroJerkMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.tBodyGyroJerkMag_arCoeff_4</strong>:numeric. Average (mean) of <em>tBodyGyroJerkMag_arCoeff_4</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAcc_mean_X</strong>:numeric. Average (mean) of <em>fBodyAcc_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAcc_mean_Y</strong>:numeric. Average (mean) of <em>fBodyAcc_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAcc_mean_Z</strong>:numeric. Average (mean) of <em>fBodyAcc_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAcc_std_X</strong>:numeric. Average (mean) of <em>fBodyAcc_std_X</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAcc_std_Y</strong>:numeric. Average (mean) of <em>fBodyAcc_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAcc_bandsEnergy_25_48.2</strong>:numeric. Average (mean) of <em>fBodyAcc_bandsEnergy_25_48.2</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccJerk_mean_X</strong>:numeric. Average (mean) of <em>fBodyAccJerk_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccJerk_mean_Y</strong>:numeric. Average (mean) of <em>fBodyAccJerk_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccJerk_mean_Z</strong>:numeric. Average (mean) of <em>fBodyAccJerk_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccJerk_std_X</strong>:numeric. Average (mean) of <em>fBodyAccJerk_std_X</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccJerk_std_Y</strong>:numeric. Average (mean) of <em>fBodyAccJerk_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccJerk_bandsEnergy_25_48.2</strong>:numeric. Average (mean) of <em>fBodyAccJerk_bandsEnergy_25_48.2</em> in tidy1.csv</li>
+<li><strong>mean.fBodyGyro_mean_X</strong>:numeric. Average (mean) of <em>fBodyGyro_mean_X</em> in tidy1.csv</li>
+<li><strong>mean.fBodyGyro_mean_Y</strong>:numeric. Average (mean) of <em>fBodyGyro_mean_Y</em> in tidy1.csv</li>
+<li><strong>mean.fBodyGyro_mean_Z</strong>:numeric. Average (mean) of <em>fBodyGyro_mean_Z</em> in tidy1.csv</li>
+<li><strong>mean.fBodyGyro_std_X</strong>:numeric. Average (mean) of <em>fBodyGyro_std_X</em> in tidy1.csv</li>
+<li><strong>mean.fBodyGyro_std_Y</strong>:numeric. Average (mean) of <em>fBodyGyro_std_Y</em> in tidy1.csv</li>
+<li><strong>mean.fBodyGyro_bandsEnergy_25_48.2</strong>:numeric. Average (mean) of <em>fBodyGyro_bandsEnergy_25_48.2</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccMag_mean</strong>:numeric. Average (mean) of <em>fBodyAccMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.fBodyAccMag_kurtosis</strong>:numeric. Average (mean) of <em>fBodyAccMag_kurtosis</em> in tidy1.csv</li>
+<li><strong>mean.fBodyBodyAccJerkMag_mean</strong>:numeric. Average (mean) of <em>fBodyBodyAccJerkMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.fBodyBodyAccJerkMag_kurtosis</strong>:numeric. Average (mean) of <em>fBodyBodyAccJerkMag_kurtosis</em> in tidy1.csv</li>
+<li><strong>mean.fBodyBodyGyroMag_mean</strong>:numeric. Average (mean) of <em>fBodyBodyGyroMag_mean</em> in tidy1.csv</li>
+<li><strong>mean.fBodyBodyGyroMag_kurtosis</strong>:numeric. Average (mean) of <em>fBodyBodyGyroMag_kurtosis</em> in tidy1.csv</li>
+<li><strong>mean.fBodyBodyGyroJerkMag_mean</strong>:numeric. Average (mean) of <em>fBodyBodyGyroJerkMag_mean</em> in tidy1.csv</li>
+</ul></body></html>

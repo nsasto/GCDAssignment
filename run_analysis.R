@@ -2,17 +2,21 @@
 
   library(data.table)
   
-  activities <- read.csv('UCI_HAR_Dataset/activity_labels.txt', header=F, stringsAsFactors=F, sep="")[,2]
+  activities <- read.csv('activity_labels.txt', header=F, stringsAsFactors=F, sep="")[,2]
   
-  trainSubject <- read.csv('UCI_HAR_Dataset/train/subject_train.txt', header=F, stringsAsFactors=F, sep="")
-  trainX       <- read.csv('UCI_HAR_Dataset/train/X_train.txt', header=F, stringsAsFactors=F, sep="")
-  trainY       <- read.csv('UCI_HAR_Dataset/train/y_train.txt', header=F, stringsAsFactors=F, sep="")
+  trainSubject <- read.csv('train/subject_train.txt', header=F, stringsAsFactors=F, sep="")[,1]
+  trainSource  <- rep(1, length(trainSubject))
+  trainX       <- read.csv('train/X_train.txt', header=F, stringsAsFactors=F, sep="")
+  trainY       <- read.csv('train/y_train.txt', header=F, stringsAsFactors=F, sep="")
   train        <- cbind(trainSubject, trainX, trainY)
   
-  testSubject <- read.csv('UCI_HAR_Dataset/test/subject_test.txt', header=F, stringsAsFactors=F, sep="")
-  testX       <- read.csv('UCI_HAR_Dataset/test/X_test.txt', header=F, stringsAsFactors=F, sep="")
-  testY       <- read.csv('UCI_HAR_Dataset/test/y_test.txt', header=F, stringsAsFactors=F, sep="")
+  testSubject <- read.csv('test/subject_test.txt', header=F, stringsAsFactors=F, sep="")[,1]
+  testSource  <- rep(2, length(trainSubject))
+  testX       <- read.csv('test/X_test.txt', header=F, stringsAsFactors=F, sep="")
+  testY       <- read.csv('test/y_test.txt', header=F, stringsAsFactors=F, sep="")
   test        <- cbind(testSubject, testX, testY)
+  
+  #Todo: add source column
   
 ##Step 1: Merges the training and the test sets to create one data set.
   
@@ -30,8 +34,10 @@
   names(d)<-c('Subject', namelist,'Activity_Idx')
   
   ##Add an Activity factor column convert Ativity_Idx column values to human readable activities
-  ##This fulfilss requirement 3 of the Assignment
+  ##This fulfils requirement 3 of the Assignment
   d <- transform(d, Activity = factor(d$Activity_Idx, labels=activities))
+  ##Convert Subject to factor
+  d$Subject <- factor(d$Subject)
   
 ##Step 2: Extracts only the measurements on the mean and standard deviation for each measurement. 
   
@@ -52,6 +58,9 @@
  ##Clean dataset s 'data.frame':  10299 obs. of  67 variables
   str(s)
   
+  #write data back to disk as tidy1.csv
+  write.csv(s, file="tidy_1.csv")
+  
 ##step 3: Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
     
   ##convert s to a data table for quick summarising of data 
@@ -65,4 +74,6 @@
   newNames <- setNames(DT, nlist)
   ##Clean dataset DT data table of 180 obs. of  67 variables
   str(DT)
+  #write data back to disk as tidy2.csv
+  write.csv(DT, file="tidy_2.csv")
   
