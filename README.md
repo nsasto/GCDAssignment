@@ -11,11 +11,13 @@ The purpose of this project is to demonstrate an ability to collect, work with, 
 2. a link to a Github repository with your script for performing the analysis, and 
 3. a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. 
 
-This repo explains how all of the scripts work and how they are connected.  
+This readme explains how all of the scripts work and how they are connected.   
 
 ###Data
 
-The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The source data for the assignment can be obtained from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone by Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz.
+
+A full description is available [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The source data for the assignment can be obtained from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 ####Variables
 
@@ -35,10 +37,10 @@ one R script called run_analysis.R that does the following:
 * **README.md** - this file
 * **Codebook.md** - description of processes used to create the tidy datasets
 * **varNames.xls** - Excel file used to generate the variable list markdown
-* **run_analysis.R** - R script to load source data and create a consolidated tidy dataset 
-two tidy data csv files with:
-* **tidy1.csv** - Consolidated dataset with clean variable names, merging X,Y and subject components containing only mean and standard deviation measurements 
-* **tidy2.csv** - Second, independent tidy data set with the average of each variable for each activity and each subject. 
+* **run_analysis.R** - R script to load source data and create a consolidated tidy dataset. This process is detailed below and in the CodeBook.md file. 
+* two tidy data csv files:
+ * **tidy1.csv** - Consolidated dataset with clean variable names, merging X,Y and subject components containing only mean and standard deviation measurements 
+ * **tidy2.csv** - Second, independent tidy data set with the average of each variable for each activity and each subject. 
 
 ###Working Directory
 
@@ -63,15 +65,17 @@ The script performs the following activities in order to create a tidy dataset, 
  2. binds Subject, X and Y data for both training and test data (cbind)
  3. combines test and training data (rbind)
  4. loads features.txt file into R for creation of column names.
- 5. parses features data to create syntactically correct variable names. 
- 6. Add an Activity factor column converting the Activity data to a factor, to make to human readable activity values
+ 5. parses features data to create syntactically correct variable names (make.names), replace all occurences of full-stops with underscores. 
+ 6. Add an Activity factor column converting the Activity data to a factor human readable activity values
 * Data extraction
- 1. using grep, extracts all column names with only mean and std (excluding meanFreq) to output only required rows
- 2. casts all numeric data explcitly to numeric in case any data has been cast to char in the load
- 3. saves this dataset as *tidy1.csv*
- 4. converts dataset to data.table for quick aggregation
- 5. creates a further dataset which provides mean of each combination of subject and activity for each variable.
- 6. saves this output to *tidy2.csv*
+ 1. using grep, extracts all column names with only 'Subject', 'mean' or 'std' (excluding meanFreq) in order to filter only required columns. 
+ 2. creates a subset of all columns that fulfil the conditions in 1
+ 3. casts all numeric data explcitly to numeric in case any data has been cast to char in the load
+ 4. saves this dataset as *tidy1.csv*
+ 5. converts dataset to data.table for quick aggregation
+ 6. creates a further dataset which provides mean of each combination of subject and activity for each variable.
+ 7. updates the names of this dataset to ensure they are descriptive of the data they contain, and not confused with data in `tidy1.csv`
+ 8. saves this output to *tidy2.csv*
 
 ##Variables
 
@@ -105,12 +109,12 @@ These signals were used to estimate variables of the feature vector for each pat
 * fBodyGyroMag
 * fBodyGyroJerkMag
 
-The set of variables that were retained from the original dataset were restricted to: 
+As per assignment instructions, the set of variables that were retained from the original dataset were restricted to: 
 
 * mean(): Mean value
 * std(): Standard deviation
 
-as per assignment instructions. Original variable names were all cleaned with the `make.names` function to ensure syntactically correct names. All .'s have been replaced with underscores for better readability. 
+ Original variable names were all cleaned with the `make.names` function to ensure syntactically correct names. All .'s have been replaced with underscores for better readability. 
 
 ###tidy1.csv: Consolidated dataset with mean and standard deviations
 

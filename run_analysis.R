@@ -34,7 +34,7 @@
   names(d)<-c('Subject', namelist,'Activity_Idx')
   
   ##Add an Activity factor column convert Ativity_Idx column values to human readable activities
-  ##This fulfils requirement 3 of the Assignment
+  ##This fulfilsrequirement 3 of the Assignment
   d <- transform(d, Activity = factor(d$Activity_Idx, labels=activities))
   ##Convert Subject to factor
   d$Subject <- factor(d$Subject)
@@ -51,7 +51,7 @@
   
   ##column data in s may be in char form, to ensure we have all data in numeric format, we explicitly cast back to numeric
   ##cast to char first to preserve any numbers that are the levels of a factor (rather than their internal representation)
-  for(i in 1:(ncol(s)-1)) {
+  for(i in 2:(ncol(s)-1)) {
     s[,i] <- as.numeric(as.character(s[,i]))
   }
   
