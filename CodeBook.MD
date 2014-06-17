@@ -3,7 +3,7 @@ Assignment CodeBook
 
 ##Context
 
-This Codebook documents the process involved in generating the tidy data sets. In addition, detail is provided for all variables in both *tidy_1.csv* and  *tidy_2.csv*. A full meta data description of variables in the final output is also included.    
+This Codebook documents the process involved in generating the tidy data sets. In addition, detail is provided for all variables in both *tidy_1.txt* and  *tidy_2.txt*. A full meta data description of variables in the final output is also included.    
 
 The R script run_analysis.R provided, performs the following:
 * Merges the training and the test sets to create one data set.
@@ -51,11 +51,11 @@ The script performs the following activities in order to create a tidy dataset, 
  1. using grep, extracts all column names with only 'Subject', 'mean' or 'std' (excluding meanFreq) in order to filter only required columns. 
  2. creates a subset of all columns that fulfil the conditions in 1
  3. casts all numeric data explcitly to numeric in case any data has been cast to char in the load
- 4. saves this dataset as *tidy1.csv*
+ 4. saves this dataset as *tidy1.txt*
  5. converts dataset to data.table for quick aggregation
  6. creates a further dataset which provides mean of each combination of subject and activity for each variable.
- 7. updates the names of this dataset to ensure they are descriptive of the data they contain, and not confused with data in `tidy1.csv`
- 8. saves this output to *tidy2.csv*
+ 7. updates the names of this dataset to ensure they are descriptive of the data they contain, and not confused with data in `tidy1.txt`
+ 8. saves this output to *tidy2.txt*
 
 ###Variables
 
@@ -94,9 +94,9 @@ As per assignment instructions, the set of variables that were retained from the
 
  Original variable names were all cleaned with the `make.names` function to ensure syntactically correct names. All .'s have been replaced with underscores for better readability. 
 
-###tidy1.csv: Consolidated dataset with mean and standard deviations
+###tidy1.txt: Consolidated dataset with mean and standard deviations
 
-Contains a data frame with 10299 observations of  67 variables. The file is saved as standard csv. To load, simply use `read.csv(file="tidy_1.csv")`
+Contains a data frame with 10299 observations of  67 variables. The file is saved as standard csv. To load, simply use `read.txt(file="tidy_1.txt")`
 
 Included variables are as follows:
 
@@ -175,11 +175,11 @@ Included variables are as follows:
 * **fBodyBodyGyroJerkMag_mean**:numeric. mean of *fBodyBodyGyroJerkMag_mean*
 
 
-###tidy2.csv: Data set with mean of each variable per activity and subject
+###tidy2.txt: Data set with mean of each variable per activity and subject
 
 
-Contains a data frame with 180 observations of  67 variables. The file is saved as standard csv. To load, simply use `read.csv(file="tidy_2.csv")`
-The variables in this case are the average of each variable in tidy_1 for each activity and each subject combination. As such, variables are prefixed with 'mean.' to avoid confusion with variables in tidy1.csv
+Contains a data frame with 180 observations of  67 variables. The file is saved as standard csv. To load, simply use `read.txt(file="tidy_2.txt")`
+The variables in this case are the average of each variable in tidy_1 for each activity and each subject combination. As such, variables are prefixed with 'mean.' to avoid confusion with variables in tidy1.txt
 
 Included variables are as follows:
 
@@ -191,73 +191,73 @@ Included variables are as follows:
  4. *SITTING*
  5. *STANDING*
  6. *LAYING*
-* **mean.tBodyAcc_mean_X**:numeric. Average (mean) of *tBodyAcc_mean_X* in tidy1.csv
-* **mean.tBodyAcc_mean_Y**:numeric. Average (mean) of *tBodyAcc_mean_Y* in tidy1.csv
-* **mean.tBodyAcc_mean_Z**:numeric. Average (mean) of *tBodyAcc_mean_Z* in tidy1.csv
-* **mean.tBodyAcc_std_X**:numeric. Average (mean) of *tBodyAcc_std_X* in tidy1.csv
-* **mean.tBodyAcc_std_Y**:numeric. Average (mean) of *tBodyAcc_std_Y* in tidy1.csv
-* **mean.tBodyAcc_correlation_Y_Z**:numeric. Average (mean) of *tBodyAcc_correlation_Y_Z* in tidy1.csv
-* **mean.tGravityAcc_mean_X**:numeric. Average (mean) of *tGravityAcc_mean_X* in tidy1.csv
-* **mean.tGravityAcc_mean_Y**:numeric. Average (mean) of *tGravityAcc_mean_Y* in tidy1.csv
-* **mean.tGravityAcc_mean_Z**:numeric. Average (mean) of *tGravityAcc_mean_Z* in tidy1.csv
-* **mean.tGravityAcc_std_X**:numeric. Average (mean) of *tGravityAcc_std_X* in tidy1.csv
-* **mean.tGravityAcc_std_Y**:numeric. Average (mean) of *tGravityAcc_std_Y* in tidy1.csv
-* **mean.tGravityAcc_correlation_Y_Z**:numeric. Average (mean) of *tGravityAcc_correlation_Y_Z* in tidy1.csv
-* **mean.tBodyAccJerk_mean_X**:numeric. Average (mean) of *tBodyAccJerk_mean_X* in tidy1.csv
-* **mean.tBodyAccJerk_mean_Y**:numeric. Average (mean) of *tBodyAccJerk_mean_Y* in tidy1.csv
-* **mean.tBodyAccJerk_mean_Z**:numeric. Average (mean) of *tBodyAccJerk_mean_Z* in tidy1.csv
-* **mean.tBodyAccJerk_std_X**:numeric. Average (mean) of *tBodyAccJerk_std_X* in tidy1.csv
-* **mean.tBodyAccJerk_std_Y**:numeric. Average (mean) of *tBodyAccJerk_std_Y* in tidy1.csv
-* **mean.tBodyAccJerk_correlation_Y_Z**:numeric. Average (mean) of *tBodyAccJerk_correlation_Y_Z* in tidy1.csv
-* **mean.tBodyGyro_mean_X**:numeric. Average (mean) of *tBodyGyro_mean_X* in tidy1.csv
-* **mean.tBodyGyro_mean_Y**:numeric. Average (mean) of *tBodyGyro_mean_Y* in tidy1.csv
-* **mean.tBodyGyro_mean_Z**:numeric. Average (mean) of *tBodyGyro_mean_Z* in tidy1.csv
-* **mean.tBodyGyro_std_X**:numeric. Average (mean) of *tBodyGyro_std_X* in tidy1.csv
-* **mean.tBodyGyro_std_Y**:numeric. Average (mean) of *tBodyGyro_std_Y* in tidy1.csv
-* **mean.tBodyGyro_correlation_Y_Z**:numeric. Average (mean) of *tBodyGyro_correlation_Y_Z* in tidy1.csv
-* **mean.tBodyGyroJerk_mean_X**:numeric. Average (mean) of *tBodyGyroJerk_mean_X* in tidy1.csv
-* **mean.tBodyGyroJerk_mean_Y**:numeric. Average (mean) of *tBodyGyroJerk_mean_Y* in tidy1.csv
-* **mean.tBodyGyroJerk_mean_Z**:numeric. Average (mean) of *tBodyGyroJerk_mean_Z* in tidy1.csv
-* **mean.tBodyGyroJerk_std_X**:numeric. Average (mean) of *tBodyGyroJerk_std_X* in tidy1.csv
-* **mean.tBodyGyroJerk_std_Y**:numeric. Average (mean) of *tBodyGyroJerk_std_Y* in tidy1.csv
-* **mean.tBodyGyroJerk_correlation_Y_Z**:numeric. Average (mean) of *tBodyGyroJerk_correlation_Y_Z* in tidy1.csv
-* **mean.tBodyAccMag_mean**:numeric. Average (mean) of *tBodyAccMag_mean* in tidy1.csv
-* **mean.tBodyAccMag_arCoeff_4**:numeric. Average (mean) of *tBodyAccMag_arCoeff_4* in tidy1.csv
-* **mean.tGravityAccMag_mean**:numeric. Average (mean) of *tGravityAccMag_mean* in tidy1.csv
-* **mean.tGravityAccMag_arCoeff_4**:numeric. Average (mean) of *tGravityAccMag_arCoeff_4* in tidy1.csv
-* **mean.tBodyAccJerkMag_mean**:numeric. Average (mean) of *tBodyAccJerkMag_mean* in tidy1.csv
-* **mean.tBodyAccJerkMag_arCoeff_4**:numeric. Average (mean) of *tBodyAccJerkMag_arCoeff_4* in tidy1.csv
-* **mean.tBodyGyroMag_mean**:numeric. Average (mean) of *tBodyGyroMag_mean* in tidy1.csv
-* **mean.tBodyGyroMag_arCoeff_4**:numeric. Average (mean) of *tBodyGyroMag_arCoeff_4* in tidy1.csv
-* **mean.tBodyGyroJerkMag_mean**:numeric. Average (mean) of *tBodyGyroJerkMag_mean* in tidy1.csv
-* **mean.tBodyGyroJerkMag_arCoeff_4**:numeric. Average (mean) of *tBodyGyroJerkMag_arCoeff_4* in tidy1.csv
-* **mean.fBodyAcc_mean_X**:numeric. Average (mean) of *fBodyAcc_mean_X* in tidy1.csv
-* **mean.fBodyAcc_mean_Y**:numeric. Average (mean) of *fBodyAcc_mean_Y* in tidy1.csv
-* **mean.fBodyAcc_mean_Z**:numeric. Average (mean) of *fBodyAcc_mean_Z* in tidy1.csv
-* **mean.fBodyAcc_std_X**:numeric. Average (mean) of *fBodyAcc_std_X* in tidy1.csv
-* **mean.fBodyAcc_std_Y**:numeric. Average (mean) of *fBodyAcc_std_Y* in tidy1.csv
-* **mean.fBodyAcc_bandsEnergy_25_48.2**:numeric. Average (mean) of *fBodyAcc_bandsEnergy_25_48.2* in tidy1.csv
-* **mean.fBodyAccJerk_mean_X**:numeric. Average (mean) of *fBodyAccJerk_mean_X* in tidy1.csv
-* **mean.fBodyAccJerk_mean_Y**:numeric. Average (mean) of *fBodyAccJerk_mean_Y* in tidy1.csv
-* **mean.fBodyAccJerk_mean_Z**:numeric. Average (mean) of *fBodyAccJerk_mean_Z* in tidy1.csv
-* **mean.fBodyAccJerk_std_X**:numeric. Average (mean) of *fBodyAccJerk_std_X* in tidy1.csv
-* **mean.fBodyAccJerk_std_Y**:numeric. Average (mean) of *fBodyAccJerk_std_Y* in tidy1.csv
-* **mean.fBodyAccJerk_bandsEnergy_25_48.2**:numeric. Average (mean) of *fBodyAccJerk_bandsEnergy_25_48.2* in tidy1.csv
-* **mean.fBodyGyro_mean_X**:numeric. Average (mean) of *fBodyGyro_mean_X* in tidy1.csv
-* **mean.fBodyGyro_mean_Y**:numeric. Average (mean) of *fBodyGyro_mean_Y* in tidy1.csv
-* **mean.fBodyGyro_mean_Z**:numeric. Average (mean) of *fBodyGyro_mean_Z* in tidy1.csv
-* **mean.fBodyGyro_std_X**:numeric. Average (mean) of *fBodyGyro_std_X* in tidy1.csv
-* **mean.fBodyGyro_std_Y**:numeric. Average (mean) of *fBodyGyro_std_Y* in tidy1.csv
-* **mean.fBodyGyro_bandsEnergy_25_48.2**:numeric. Average (mean) of *fBodyGyro_bandsEnergy_25_48.2* in tidy1.csv
-* **mean.fBodyAccMag_mean**:numeric. Average (mean) of *fBodyAccMag_mean* in tidy1.csv
-* **mean.fBodyAccMag_kurtosis**:numeric. Average (mean) of *fBodyAccMag_kurtosis* in tidy1.csv
-* **mean.fBodyBodyAccJerkMag_mean**:numeric. Average (mean) of *fBodyBodyAccJerkMag_mean* in tidy1.csv
-* **mean.fBodyBodyAccJerkMag_kurtosis**:numeric. Average (mean) of *fBodyBodyAccJerkMag_kurtosis* in tidy1.csv
-* **mean.fBodyBodyGyroMag_mean**:numeric. Average (mean) of *fBodyBodyGyroMag_mean* in tidy1.csv
-* **mean.fBodyBodyGyroMag_kurtosis**:numeric. Average (mean) of *fBodyBodyGyroMag_kurtosis* in tidy1.csv
-* **mean.fBodyBodyGyroJerkMag_mean**:numeric. Average (mean) of *fBodyBodyGyroJerkMag_mean* in tidy1.csv
+* **mean.tBodyAcc_mean_X**:numeric. Average (mean) of *tBodyAcc_mean_X* in tidy1.txt
+* **mean.tBodyAcc_mean_Y**:numeric. Average (mean) of *tBodyAcc_mean_Y* in tidy1.txt
+* **mean.tBodyAcc_mean_Z**:numeric. Average (mean) of *tBodyAcc_mean_Z* in tidy1.txt
+* **mean.tBodyAcc_std_X**:numeric. Average (mean) of *tBodyAcc_std_X* in tidy1.txt
+* **mean.tBodyAcc_std_Y**:numeric. Average (mean) of *tBodyAcc_std_Y* in tidy1.txt
+* **mean.tBodyAcc_correlation_Y_Z**:numeric. Average (mean) of *tBodyAcc_correlation_Y_Z* in tidy1.txt
+* **mean.tGravityAcc_mean_X**:numeric. Average (mean) of *tGravityAcc_mean_X* in tidy1.txt
+* **mean.tGravityAcc_mean_Y**:numeric. Average (mean) of *tGravityAcc_mean_Y* in tidy1.txt
+* **mean.tGravityAcc_mean_Z**:numeric. Average (mean) of *tGravityAcc_mean_Z* in tidy1.txt
+* **mean.tGravityAcc_std_X**:numeric. Average (mean) of *tGravityAcc_std_X* in tidy1.txt
+* **mean.tGravityAcc_std_Y**:numeric. Average (mean) of *tGravityAcc_std_Y* in tidy1.txt
+* **mean.tGravityAcc_correlation_Y_Z**:numeric. Average (mean) of *tGravityAcc_correlation_Y_Z* in tidy1.txt
+* **mean.tBodyAccJerk_mean_X**:numeric. Average (mean) of *tBodyAccJerk_mean_X* in tidy1.txt
+* **mean.tBodyAccJerk_mean_Y**:numeric. Average (mean) of *tBodyAccJerk_mean_Y* in tidy1.txt
+* **mean.tBodyAccJerk_mean_Z**:numeric. Average (mean) of *tBodyAccJerk_mean_Z* in tidy1.txt
+* **mean.tBodyAccJerk_std_X**:numeric. Average (mean) of *tBodyAccJerk_std_X* in tidy1.txt
+* **mean.tBodyAccJerk_std_Y**:numeric. Average (mean) of *tBodyAccJerk_std_Y* in tidy1.txt
+* **mean.tBodyAccJerk_correlation_Y_Z**:numeric. Average (mean) of *tBodyAccJerk_correlation_Y_Z* in tidy1.txt
+* **mean.tBodyGyro_mean_X**:numeric. Average (mean) of *tBodyGyro_mean_X* in tidy1.txt
+* **mean.tBodyGyro_mean_Y**:numeric. Average (mean) of *tBodyGyro_mean_Y* in tidy1.txt
+* **mean.tBodyGyro_mean_Z**:numeric. Average (mean) of *tBodyGyro_mean_Z* in tidy1.txt
+* **mean.tBodyGyro_std_X**:numeric. Average (mean) of *tBodyGyro_std_X* in tidy1.txt
+* **mean.tBodyGyro_std_Y**:numeric. Average (mean) of *tBodyGyro_std_Y* in tidy1.txt
+* **mean.tBodyGyro_correlation_Y_Z**:numeric. Average (mean) of *tBodyGyro_correlation_Y_Z* in tidy1.txt
+* **mean.tBodyGyroJerk_mean_X**:numeric. Average (mean) of *tBodyGyroJerk_mean_X* in tidy1.txt
+* **mean.tBodyGyroJerk_mean_Y**:numeric. Average (mean) of *tBodyGyroJerk_mean_Y* in tidy1.txt
+* **mean.tBodyGyroJerk_mean_Z**:numeric. Average (mean) of *tBodyGyroJerk_mean_Z* in tidy1.txt
+* **mean.tBodyGyroJerk_std_X**:numeric. Average (mean) of *tBodyGyroJerk_std_X* in tidy1.txt
+* **mean.tBodyGyroJerk_std_Y**:numeric. Average (mean) of *tBodyGyroJerk_std_Y* in tidy1.txt
+* **mean.tBodyGyroJerk_correlation_Y_Z**:numeric. Average (mean) of *tBodyGyroJerk_correlation_Y_Z* in tidy1.txt
+* **mean.tBodyAccMag_mean**:numeric. Average (mean) of *tBodyAccMag_mean* in tidy1.txt
+* **mean.tBodyAccMag_arCoeff_4**:numeric. Average (mean) of *tBodyAccMag_arCoeff_4* in tidy1.txt
+* **mean.tGravityAccMag_mean**:numeric. Average (mean) of *tGravityAccMag_mean* in tidy1.txt
+* **mean.tGravityAccMag_arCoeff_4**:numeric. Average (mean) of *tGravityAccMag_arCoeff_4* in tidy1.txt
+* **mean.tBodyAccJerkMag_mean**:numeric. Average (mean) of *tBodyAccJerkMag_mean* in tidy1.txt
+* **mean.tBodyAccJerkMag_arCoeff_4**:numeric. Average (mean) of *tBodyAccJerkMag_arCoeff_4* in tidy1.txt
+* **mean.tBodyGyroMag_mean**:numeric. Average (mean) of *tBodyGyroMag_mean* in tidy1.txt
+* **mean.tBodyGyroMag_arCoeff_4**:numeric. Average (mean) of *tBodyGyroMag_arCoeff_4* in tidy1.txt
+* **mean.tBodyGyroJerkMag_mean**:numeric. Average (mean) of *tBodyGyroJerkMag_mean* in tidy1.txt
+* **mean.tBodyGyroJerkMag_arCoeff_4**:numeric. Average (mean) of *tBodyGyroJerkMag_arCoeff_4* in tidy1.txt
+* **mean.fBodyAcc_mean_X**:numeric. Average (mean) of *fBodyAcc_mean_X* in tidy1.txt
+* **mean.fBodyAcc_mean_Y**:numeric. Average (mean) of *fBodyAcc_mean_Y* in tidy1.txt
+* **mean.fBodyAcc_mean_Z**:numeric. Average (mean) of *fBodyAcc_mean_Z* in tidy1.txt
+* **mean.fBodyAcc_std_X**:numeric. Average (mean) of *fBodyAcc_std_X* in tidy1.txt
+* **mean.fBodyAcc_std_Y**:numeric. Average (mean) of *fBodyAcc_std_Y* in tidy1.txt
+* **mean.fBodyAcc_bandsEnergy_25_48.2**:numeric. Average (mean) of *fBodyAcc_bandsEnergy_25_48.2* in tidy1.txt
+* **mean.fBodyAccJerk_mean_X**:numeric. Average (mean) of *fBodyAccJerk_mean_X* in tidy1.txt
+* **mean.fBodyAccJerk_mean_Y**:numeric. Average (mean) of *fBodyAccJerk_mean_Y* in tidy1.txt
+* **mean.fBodyAccJerk_mean_Z**:numeric. Average (mean) of *fBodyAccJerk_mean_Z* in tidy1.txt
+* **mean.fBodyAccJerk_std_X**:numeric. Average (mean) of *fBodyAccJerk_std_X* in tidy1.txt
+* **mean.fBodyAccJerk_std_Y**:numeric. Average (mean) of *fBodyAccJerk_std_Y* in tidy1.txt
+* **mean.fBodyAccJerk_bandsEnergy_25_48.2**:numeric. Average (mean) of *fBodyAccJerk_bandsEnergy_25_48.2* in tidy1.txt
+* **mean.fBodyGyro_mean_X**:numeric. Average (mean) of *fBodyGyro_mean_X* in tidy1.txt
+* **mean.fBodyGyro_mean_Y**:numeric. Average (mean) of *fBodyGyro_mean_Y* in tidy1.txt
+* **mean.fBodyGyro_mean_Z**:numeric. Average (mean) of *fBodyGyro_mean_Z* in tidy1.txt
+* **mean.fBodyGyro_std_X**:numeric. Average (mean) of *fBodyGyro_std_X* in tidy1.txt
+* **mean.fBodyGyro_std_Y**:numeric. Average (mean) of *fBodyGyro_std_Y* in tidy1.txt
+* **mean.fBodyGyro_bandsEnergy_25_48.2**:numeric. Average (mean) of *fBodyGyro_bandsEnergy_25_48.2* in tidy1.txt
+* **mean.fBodyAccMag_mean**:numeric. Average (mean) of *fBodyAccMag_mean* in tidy1.txt
+* **mean.fBodyAccMag_kurtosis**:numeric. Average (mean) of *fBodyAccMag_kurtosis* in tidy1.txt
+* **mean.fBodyBodyAccJerkMag_mean**:numeric. Average (mean) of *fBodyBodyAccJerkMag_mean* in tidy1.txt
+* **mean.fBodyBodyAccJerkMag_kurtosis**:numeric. Average (mean) of *fBodyBodyAccJerkMag_kurtosis* in tidy1.txt
+* **mean.fBodyBodyGyroMag_mean**:numeric. Average (mean) of *fBodyBodyGyroMag_mean* in tidy1.txt
+* **mean.fBodyBodyGyroMag_kurtosis**:numeric. Average (mean) of *fBodyBodyGyroMag_kurtosis* in tidy1.txt
+* **mean.fBodyBodyGyroJerkMag_mean**:numeric. Average (mean) of *fBodyBodyGyroJerkMag_mean* in tidy1.txt
 
-###tidy2.csv Detailed Variable Summary
+###tidy2.txt Detailed Variable Summary
 
 
    DT.Subject
